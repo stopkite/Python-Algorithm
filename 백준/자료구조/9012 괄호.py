@@ -19,7 +19,7 @@ def solution(n: int):
         if len(stack) != 0:  # 스택 안에 값이 남아 있으면 False
             flag = False
 
-        if flag:  # 괄호 문자열 여부 확인
+        if flag:  # 괄호 09 문자열 여부 확인
             print("YES")
         else:
             print("NO")
