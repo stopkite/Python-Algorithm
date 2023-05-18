@@ -16,7 +16,7 @@ def solution(n: int):
             else:  # '(', ')'를 제외한 문자열이 들어오면 continue
                 continue
 
-        if len(stack) != 0:  # 스택 안에 값이 남아 있으면 False
+        if len(stack) != 0:  # 스택, 큐 안에 값이 남아 있으면 False
             flag = False
 
         if flag:  # 괄호 09 문자열 여부 확인
