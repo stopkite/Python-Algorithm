@@ -11,9 +11,8 @@ def solution(want, number, discount):
     for i in range(len(discount) - 9):
         d.append(discount[i:10 + i])
 
-    w_dict = dict(sorted(w_dict.items()))
     for items in d:
-        c_dict = dict(sorted(dict(Counter(items)).items()))
+        c_dict = dict(Counter(items))
         if w_dict == c_dict:
             answer += 1
 
