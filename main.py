@@ -1,15 +1,22 @@
-dict = {}
+files = ["img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"]
+head = {}
+number = {}
+tail = {}
+for idx, file in enumerate(files):
+    h, n, t = '', '', ''
+    last_numeric_idx = 0
+    for i in range(len(file)):
+        if not file[i].isnumeric():  # head
+            h += file[i]
 
-dict['b'] = 1
-dict['a'] = 1
+            if i > last_numeric_idx:  # tail
+                t += file[i]
 
-print(dict)
+        else:  # number
+            n += file[i]
+            last_numeric_idx = i
+    print(idx)
 
-dict2 = {}
-dict2['a'] = 1
-dict2['b'] = 1
-
-print(dict2)
-
-if dict == dict2:
-    print("순서가 달라도 안에 내용이 같으면 같은걸로 취급된다")
+print(head)
+print(number)
+print(tail)
