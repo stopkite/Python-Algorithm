@@ -1,22 +1,5 @@
-files = ["img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"]
-head = {}
-number = {}
-tail = {}
-for idx, file in enumerate(files):
-    h, n, t = '', '', ''
-    last_numeric_idx = 0
-    for i in range(len(file)):
-        if not file[i].isnumeric():  # head
-            h += file[i]
-
-            if i > last_numeric_idx:  # tail
-                t += file[i]
-
-        else:  # number
-            n += file[i]
-            last_numeric_idx = i
-    print(idx)
-
-print(head)
-print(number)
-print(tail)
+### 구현 문제 TIP
+# 1. 문제를 이해할 때까지 코드 작성을 시작하지 않는다.
+# - 문제 이해가 되지 않으면 예시를 통해 규칙을 찾는다
+# 2. 도식화를 통해 긴 흐름을 잘게 나눈다.
+# 3. 2번을 한 단계씩 찍어서 나중에 오류가 났을 때 멘붕방지

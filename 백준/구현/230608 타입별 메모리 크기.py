@@ -1,11 +1,7 @@
-def assign_data(memory, data_size):
-    while len(memory) % data_size != 0:
-        memory += '.'
-    for _ in range(data_size):
-        memory += '#'
-    return memory
-
-
+# 1. 문제를 이해할 때까지 코드 작성을 시작하지 않는다.
+# - 문제 이해가 되지 않으면 예시를 통해 규칙을 찾는다
+# 2. 도식화를 통해 긴 흐름을 잘게 나눈다.
+# 3. 2번을 한 단계씩 찍어서 나중에 오류가 났을 때 멘붕방지
 def solution(param0, result):
     types = {
         "BOOL": 1,
@@ -58,8 +54,6 @@ def solution(param0, result):
     else:
         answer = ','.join(memories)
 
-    print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
-    print(result)
     return answer
 
 
