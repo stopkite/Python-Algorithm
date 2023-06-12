@@ -1,7 +1,9 @@
-def is_full_memory(memory):
-    if len(memory) == 8:
-        return True
-    return False
+def assign_data(memory, data_size):
+    while len(memory) % data_size != 0:
+        memory += '.'
+    for _ in range(data_size):
+        memory += '#'
+    return memory
 
 
 def solution(param0, result):
@@ -18,74 +20,46 @@ def solution(param0, result):
     for data in param0:
         size = types[data]
 
-        # BOOL
+        if len(memory) == 8:
+            memories.append(memory)
+            memory = ''
+
         if size == 1:
-            if is_full_memory(memory):
-                memories.append(memory)
-                memory = ''
-            else:
-                memory += '#'
-
-        # SHORT, FLOAT
+            memory += '#'
         elif size == 2:
-            if is_full_memory(memory):
-                memories.append(memory)
-                memory = ''
-
-            # 2배수 메모리 할당
-            idx = len(memory)
-            while idx % 2 != 0:
+            while len(memory) % 2 != 0:
                 memory += '.'
-
-            for _ in range(2):
-                memory += '#'
-
+            memory += '#' * 2
         elif size == 4:
-            if is_full_memory(memory):
+            while len(memory) % 4 != 0:
+                memory += '.'
+            memory += '#' * 4
+        else:
+            if len(memory) != 0:
+                while len(memory) % 8 != 0:
+                    memory += '.'
+                memories.append(memory)
+            memory = '#' * 8
+
+            if size == 16:
+                memories.append(memory)
+                memory = '#' * 8
                 memories.append(memory)
                 memory = ''
 
-            # 4배수 메모리 할당
-            idx = len(memory)
-            while idx % 4 != 0:
-                memory += '.'
-
-            for _ in range(4):
-                memory += '#'
-
-        # INT, LONG
-        elif size == 8:
-            if is_full_memory(memory):
-                memories.append(memory)
-                memory = '########'
-                memories.append(memory)
-            else:
-                while len(memory) != 8:
-                    memory += '.'
-                memories.append(memory)
-                memory = "########"
-                memories.append(memory)
-        else:
-            if is_full_memory(memory):
-                memories.append(memory)
-                memory = '########'
-                memories.append(memory)
-                memories.append(memory)
-            else:
-                while len(memory) != 8:
-                    memory += '.'
-                memories.append(memory)
-                memory = "########"
-                memories.append(memory)
-                memories.append(memory)
-
-    answer = ','.join(memories)
-
-    print(result)
+    # 마지막 메모리 값 체크
+    if len(memory) != 0:
+        while len(memory) != 8:
+            memory += '.'
+        memories.append(memory)
 
     if len(memories) > 16:
-        return "HALT"
+        answer = "HALT"
+    else:
+        answer = ','.join(memories)
 
+    print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+    print(result)
     return answer
 
 
