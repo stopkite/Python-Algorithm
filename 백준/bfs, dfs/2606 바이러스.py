@@ -1,9 +1,6 @@
 from collections import deque
 
-
-def solution():
-    n = int(input())
-    m = int(input())
+def solution(n, m):
     cnt = 0
 
     graph = [[False] * (n + 1) for _ in range(n + 1)]
@@ -28,4 +25,6 @@ def solution():
     print(answer)
 
 
-solution()
+n = int(input())
+m = int(input())
+solution(n, m)
