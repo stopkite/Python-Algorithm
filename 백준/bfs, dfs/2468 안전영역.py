@@ -5,12 +5,12 @@ def solution(n, graph):
     dx = [0, 0, -1, 1]
     dy = [-1, 1, 0, 0]
 
-    max_num = 0
+    max_height = 0
     for row in graph:
         for elem in row:
-            max_num = max(max_num, elem)
+            max_height = max(max_height, elem)
 
-    def bfs(a, b, num, visited):
+    def bfs(a, b, h, visited):
         queue = deque([(a, b)])
         visited[a][b] = True
         while queue:
@@ -20,18 +20,18 @@ def solution(n, graph):
                 ny = dy[i] + y
                 if nx < 0 or nx >= n or ny < 0 or ny >= n:
                     continue
-                if not visited[nx][ny] and graph[nx][ny] > num:
+                if not visited[nx][ny] and graph[nx][ny] > h:
                     visited[nx][ny] = True
                     queue.append((nx, ny))
 
     max_cnt = 0
-    for num in range(max_num):
+    for h in range(max_height):
         cnt = 0
         visited = [[False] * n for _ in range(n)]
         for i in range(n):
             for j in range(n):
-                if not visited[i][j] and graph[i][j] > num:
-                    bfs(i, j, num, visited)
+                if not visited[i][j] and graph[i][j] > h:
+                    bfs(i, j, h, visited)
                     cnt += 1
         max_cnt = max(max_cnt, cnt)
 
