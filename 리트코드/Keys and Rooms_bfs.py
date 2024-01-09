@@ -16,5 +16,7 @@ class Solution:
 
         return all(visited)
 
+
 solution = Solution()
-solution.canVisitAllRooms([[1],[2],[3],[]])
+# solution.canVisitAllRooms([[1],[2],[3],[]])
+solution.canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]])

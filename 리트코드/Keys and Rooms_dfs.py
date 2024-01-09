@@ -9,6 +9,8 @@ class Solution:
                     dfs(next_v)
 
         dfs(0)
-
         return all(visited)
 
+
+solution = Solution()
+solution.canVisitAllRooms([[1], [2], [3], []])
